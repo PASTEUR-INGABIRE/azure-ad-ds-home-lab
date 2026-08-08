@@ -328,14 +328,37 @@ Domain authentication was verified on CLIENT01 using a `corp.local` domain accou
 *Figure 6: PowerShell verification showing a CORP domain identity authenticated on CLIENT01.*
 
 
-### Additional Evidence
+### Windows Security Event Monitoring
 
-Additional sanitized evidence will document:
+Windows Security logs on DC01 were filtered and reviewed to identify authentication and privileged-logon activity relevant to SOC investigations.
 
-- Windows Security event monitoring.
-- Microsoft Defender for Cloud recommendations.
-- Network Security Group configuration.
-- Troubleshooting and remediation activities.
+![Windows Security event monitoring](screenshots/07-security-event-monitoring.png)
+
+*Figure 7: Filtered DC01 Security log showing successful authentication and special-privilege events.*
+
+### Microsoft Defender for Cloud
+
+Microsoft Defender for Cloud was used to review security recommendations and risk information associated with the lab resources.
+
+![Microsoft Defender for Cloud recommendations](screenshots/08-defender-cloud-recommendations.png)
+
+*Figure 8: Defender for Cloud assessment showing security recommendations for DC01, CLIENT01, and supporting Azure resources.*
+
+### DC01 Network Security Group
+
+RDP access to DC01 was restricted to the administrator workstation’s current public IPv4 address using a `/32` source rule.
+
+![DC01 restricted RDP rule](screenshots/09-dc01-nsg-rdp-restriction.png)
+
+*Figure 9: DC01 NSG rule allowing TCP port 3389 only from an authorized source address. The address has been redacted.*
+
+### CLIENT01 Network Security Group
+
+The same source-IP restriction was applied to CLIENT01 to reduce unnecessary exposure of the RDP service.
+
+![CLIENT01 restricted RDP rule](screenshots/10-client01-nsg-rdp-restriction.png)
+
+*Figure 10: CLIENT01 NSG rule restricting TCP port 3389 to an authorized `/32` source.*
 
 > Raw `.evtx` files, RDP files, credentials, public IP addresses, subscription identifiers, and tenant identifiers are not published.
 
