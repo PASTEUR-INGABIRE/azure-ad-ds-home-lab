@@ -276,20 +276,38 @@ This lab provided hands-on experience with:
 
 ## Evidence
 
-Sanitized screenshots will be added to document:
+## Evidence
 
-- Azure resource group and virtual network configuration.
-- Successful AD DS and DNS installation on DC01.
-- The `corp.local` domain in Active Directory Users and Computers.
-- Organizational units, user accounts, and security groups in Active Directory Users and Computers.
+### Azure Virtual Machines
+
+The lab uses two Windows Server 2022 virtual machines hosted in Microsoft Azure: **DC01**, configured as the domain controller and DNS server, and **CLIENT01**, configured as the domain member.
+
+![Azure virtual machines](screenshots/01-azure-virtual-machines.png)
+
+*Figure 1: Sanitized Azure portal view showing DC01 and CLIENT01 running in the AD-LAB environment.*
+
+### Client DNS Configuration
+
+CLIENT01 was configured to use the private IP address of DC01 as its custom DNS server. This allowed the client to locate the Active Directory DNS records required to join `corp.local`.
+
+![CLIENT01 custom DNS configuration](screenshots/02-client01-custom-dns.png)
+
+*Figure 2: Sanitized CLIENT01 network-interface configuration showing the custom DNS setting.*
+
+### Additional Evidence
+
+Additional sanitized evidence documents:
+
+- AD DS and DNS installation on DC01.
+- The `corp.local` domain.
+- Organizational units, user accounts, and security groups.
 - CLIENT01 domain membership.
-- Successful local and domain authentication.
-- Filtered authentication and account-management events in Event Viewer.
+- Successful domain-user authentication.
+- Windows Security event monitoring.
 - Microsoft Defender for Cloud recommendations.
-- Sanitized Azure Network Security Group rules.
-- Troubleshooting results without exposing sensitive information.
+- Network Security Group configuration.
 
-Raw `.evtx` files, RDP files, credentials, public IP addresses, subscription identifiers, and tenant identifiers will not be published.
+> Raw `.evtx` files, RDP files, credentials, public IP addresses, subscription identifiers, and tenant identifiers are not published.
 
 ## References
 
