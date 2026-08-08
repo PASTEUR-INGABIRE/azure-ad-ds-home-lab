@@ -274,7 +274,6 @@ This lab provided hands-on experience with:
 - Remove direct public exposure and implement a secured administrative access path.
 - Add infrastructure-as-code automation in a separate future version of the project.
 
-## Evidence
 
 ## Evidence
 
@@ -294,18 +293,49 @@ CLIENT01 was configured to use the private IP address of DC01 as its custom DNS 
 
 *Figure 2: Sanitized CLIENT01 network-interface configuration showing the custom DNS setting.*
 
+
+
+### Domain Controller Roles
+
+DC01 was configured with the Active Directory Domain Services and DNS roles. Both services are operational and managed through Windows Server Manager.
+
+![AD DS and DNS roles](screenshots/03-ad-ds-dns-roles.png)
+
+*Figure 3: Server Manager showing the AD DS and DNS roles installed and operational on DC01.*
+
+### Active Directory Organizational Structure
+
+Organizational units and domain user accounts were created in Active Directory Users and Computers to simulate an enterprise identity-management structure.
+
+![Active Directory OUs and users](screenshots/04-active-directory-ou-users.png)
+
+*Figure 4: The corp.local domain containing organizational units and lab user accounts.*
+
+### Domain Membership Verification
+
+CLIENT01 was successfully joined to the `corp.local` Active Directory domain.
+
+![CLIENT01 domain membership](screenshots/05-client01-domain-membership.png)
+
+*Figure 5: Windows System Properties confirming that CLIENT01 is a member of corp.local.*
+
+### Domain Authentication
+
+Domain authentication was verified on CLIENT01 using a `corp.local` domain account.
+
+![Domain authentication](screenshots/06-domain-authentication.png)
+
+*Figure 6: PowerShell verification showing a CORP domain identity authenticated on CLIENT01.*
+
+
 ### Additional Evidence
 
-Additional sanitized evidence documents:
+Additional sanitized evidence will document:
 
-- AD DS and DNS installation on DC01.
-- The `corp.local` domain.
-- Organizational units, user accounts, and security groups.
-- CLIENT01 domain membership.
-- Successful domain-user authentication.
 - Windows Security event monitoring.
 - Microsoft Defender for Cloud recommendations.
 - Network Security Group configuration.
+- Troubleshooting and remediation activities.
 
 > Raw `.evtx` files, RDP files, credentials, public IP addresses, subscription identifiers, and tenant identifiers are not published.
 
