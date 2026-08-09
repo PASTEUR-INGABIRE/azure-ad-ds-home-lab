@@ -1,4 +1,4 @@
-# Azure-Hosted Active Directory Domain Services Lab
+# Cloud-Based Active Directory Setup and User Management in Microsoft Azure
 
 ![Project Status](https://img.shields.io/badge/status-completed-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-Microsoft%20Azure-0078D4)
